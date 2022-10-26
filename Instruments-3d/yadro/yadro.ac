@@ -1,0 +1,26 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "rect"
+data 4
+Mesh
+texture "yadro.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000418 -0.042294 0.058901
+0.000418 -0.042294 -0.058901
+0.000418 0.042655 -0.058901
+0.000418 0.042655 0.058901
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0625 0.148438006639
+1 0.886718988419 0.148438006639
+2 0.886718988419 0.882812023163
+3 0.0625 0.882812023163
+kids 0

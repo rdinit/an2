@@ -1,0 +1,110 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+OBJECT world
+kids 5
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "mv-16u_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000697 0.042709 0.044011
+0.000697 -0.042939 0.044011
+0.000697 -0.042939 -0.043218
+0.000697 0.042709 -0.043218
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "mv-16u_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001083 0.036185 -0.036487
+0.001083 -0.036281 -0.036487
+0.001083 -0.036281 0.037514
+0.001083 0.036185 0.037514
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0
+OBJECT poly
+name "needle"
+data 8
+Mesh.002
+texture "mv-16u_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.003214 0.027314 -0.005747
+0.003214 0.027314 0.005713
+0.003214 -0.018863 0.005713
+0.003214 -0.018863 -0.005747
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.927820980549 1.00739002228
+1 -0.0877989977598 1.00739002228
+2 -0.0877989977598 -0.012140199542
+3 0.927820980549 -0.012140199542
+kids 0
+OBJECT poly
+name "needle_uv"
+data 8
+Mesh.003
+texture "mv-16u_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.003561 -0.003827 -0.005372
+0.003561 -0.003827 0.004934
+0.003561 0.027314 0.004934
+0.003561 0.027314 -0.005372
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 -0.0565490014851 0.326409012079
+0 0.959070980549 0.326409012079
+3 0.959070980549 1.00218999386
+2 -0.0565490014851 1.00218999386
+kids 0
+OBJECT poly
+name "poly2"
+data 8
+Mesh.004
+texture "mv-16u_3.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.005091 0.042762 -0.042953
+0.005091 -0.042886 -0.042953
+0.005091 -0.042886 0.043829
+0.005091 0.042762 0.043829
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0

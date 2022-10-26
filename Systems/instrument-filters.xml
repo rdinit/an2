@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+
+Antonov 2: instrument filters
+
+Copyright (c) 2020 Ludovic Brenta
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+************************************************************************
+-->
+
+<PropertyList>
+  <filter>
+    <name>SBESS fuel gauge</name>
+    <type>gain</type>
+    <update-interval-secs>0.5</update-interval-secs>
+    
+    <input>
+      <condition>
+        <and>
+          <property>an2/instrumentation/sbess/serviceable</property>
+          <equals>
+            <property>an2/controls/switches/fuel_selector</property>
+            <value>0</value> <!-- display sum -->
+          </equals>
+        </and>
+      </condition>
+      <expression>
+        <sum>
+          <property>consumables/fuel/tank[1]/level-gal_us</property>
+          <property>consumables/fuel/tank[2]/level-gal_us</property>
+        </sum>
+      </expression>
+    </input>
+    
+    <input>
+      <condition>
+        <and>
+          <property>an2/instrumentation/sbess/serviceable</property>
+          <equals>
+            <property>an2/controls/switches/fuel_selector</property>
+            <value>1</value> <!-- display right tank -->
+          </equals>
+        </and>
+      </condition>
+      <property>consumables/fuel/tank[1]/level-gal_us</property>
+    </input>
+
+    <input>
+      <condition>
+        <and>
+          <property>an2/instrumentation/sbess/serviceable</property>
+          <equals>
+            <property>an2/controls/switches/fuel_selector</property>
+            <value>-1</value> <!-- display left tank -->
+          </equals>
+        </and>
+      </condition>
+      <property>consumables/fuel/tank[2]/level-gal_us</property>
+    </input>
+
+    <input> <!-- fallback if not serviceable -->
+      <value>0</value>
+    </input>
+
+    <output>an2/instrumentation/sbess/target-indicated-fuel-l</output>
+    <gain>3.785</gain> <!-- convert US gallons to litres -->
+  </filter>
+
+  <filter>
+    <name>SBESS fuel gauge rate limiter</name>
+    <type>noise-spike</type>
+    <input>an2/instrumentation/sbess/target-indicated-fuel-l</input>
+    <output>an2/instrumentation/sbess/indicated-fuel-l</output>
+    <max-rate-of-change>2000</max-rate-of-change>
+  </filter>
+
+  <filter>
+    <name>GPK gyrocompass</name>
+    <type>gain</type>
+    <input>
+      <condition>
+        <property>an2/instrumentation/gpk-48/caged-flag</property>
+      </condition>
+      <expression>
+        <sum>
+          <property>an2/instrumentation/gpk-48/true-heading-deg</property>
+          <property>instrumentation/heading-indicator/offset-deg</property>
+        </sum>
+      </expression>
+    </input>
+    <input>
+      <condition>
+        <not>
+          <property>an2/instrumentation/gpk-48/caged-flag</property>
+        </not>
+      </condition>
+      <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+    </input>
+    <output>an2/instrumentation/gpk-48/indicated-heading-deg</output>
+  </filter>
+
+  <filter>
+    <name>GIK compass</name>
+    <type>gain</type>
+    <input>
+      <condition>
+        <property>an2/instrumentation/gik/serviceable</property>
+      </condition>
+      <expression>
+        <sum>
+          <property>an2/instrumentation/gik/offset</property>
+          <property>orientation/heading-magnetic-deg</property>
+        </sum>
+      </expression>
+    </input>
+    <output>an2/instrumentation/gik/indicated-heading-deg</output>
+  </filter>
+
+</PropertyList>

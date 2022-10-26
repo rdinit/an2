@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2009 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################
+    
+    ************************* An-2 ver. 2.0 *************************************
+    -->
+
+<PropertyList>
+
+ <path>sbess.ac</path>
+ <!-- Internal instruments lighting -->
+ <animation>
+   <type>material</type>
+   <object-name>base</object-name>
+   <object-name>needle</object-name>
+   <emission>
+     <red-prop>an2/controls/light/int-red</red-prop>
+     <green-prop>an2/controls/light/int-green</green-prop>
+     <blue-prop>an2/controls/light/int-blue</blue-prop>
+   </emission>
+ </animation>
+ <!-- External instruments lighting -->
+ <animation>
+   <type>material</type>
+   <object-name>poly1</object-name>
+   <object-name>poly2</object-name>
+   <emission>
+     <red-prop>an2/controls/light/ext-red</red-prop>
+     <green-prop>an2/controls/light/ext-green</green-prop>
+     <blue-prop>an2/controls/light/ext-blue</blue-prop>
+   </emission>
+ </animation>
+
+<!--UV staff-->
+
+<animation>
+   <type>select</type>
+   <object-name>uv_group</object-name>
+   <condition>
+   	<property>an2/controls/switches/uv_light</property>
+   </condition>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>uv_group</object-name>
+  <condition>
+    <property>an2/controls/switches/uv_light</property>
+  </condition>
+ <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+  
+<!--Needles-->
+<animation>
+  <type>rotate</type>
+  <object-name>needle</object-name>
+  <object-name>needle_uv</object-name>
+  <property>an2/instrumentation/sbess/indicated-fuel-l</property>
+  <interpolation>
+    <entry><ind>	0</ind><dep>	0</dep></entry>
+    <entry><ind>	100</ind><dep>	-28</dep></entry>
+    <entry><ind>	200</ind><dep>	-42</dep></entry>
+    <entry><ind>	300</ind><dep>	-57</dep></entry>
+    <entry><ind>	400</ind><dep>	-73</dep></entry>
+    <entry><ind>	500</ind><dep>	-90</dep></entry>
+    <entry><ind>	600</ind><dep>	-108</dep></entry>
+    <entry><ind>	700</ind><dep>	-124</dep></entry>
+    <entry><ind>	800</ind><dep>	-140</dep></entry>
+    <entry><ind>	900</ind><dep>	-160</dep></entry>
+    <entry><ind>	1000</ind><dep>	-176</dep></entry>
+    <entry><ind>	1400</ind><dep>	-210</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--
+<animation>
+  <type>rotate</type>
+  <object-name>needle_uv</object-name>
+  <property>an2/instrumentation/sbess/indicated-fuel-l</property>
+  <interpolation>
+    <entry><ind>	0</ind><dep>	0</dep></entry>
+    <entry><ind>	100</ind><dep>	-28</dep></entry>
+    <entry><ind>	200</ind><dep>	-42</dep></entry>
+    <entry><ind>	300</ind><dep>	-57</dep></entry>
+    <entry><ind>	400</ind><dep>	-73</dep></entry>
+    <entry><ind>	500</ind><dep>	-90</dep></entry>
+    <entry><ind>	600</ind><dep>	-108</dep></entry>
+    <entry><ind>	700</ind><dep>	-124</dep></entry>
+    <entry><ind>	800</ind><dep>	-140</dep></entry>
+    <entry><ind>	900</ind><dep>	-160</dep></entry>
+    <entry><ind>	1000</ind><dep>	-176</dep></entry>
+    <entry><ind>	1400</ind><dep>	-210</dep></entry>
+  </interpolation>  
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+</animation>-->
+
+</PropertyList>

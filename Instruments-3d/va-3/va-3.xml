@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2009 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################
+    
+    ************************* An-2 ver. 2.0 *************************************
+    -->
+
+<!-- Volt-ampermeter VA-3
+3D instrument for An-2-->
+<PropertyList>
+ <path>va-3.ac</path>
+<!-- Internal instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>base</object-name>
+  <object-name>needle</object-name>
+  <emission>
+    <red-prop>an2/controls/light/int-red</red-prop>
+    <green-prop>an2/controls/light/int-green</green-prop>
+    <blue-prop>an2/controls/light/int-blue</blue-prop>
+  </emission>
+</animation>
+
+<!-- External instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>poly2</object-name>
+  <emission>
+    <red-prop>an2/controls/light/ext-red</red-prop>
+    <green-prop>an2/controls/light/ext-green</green-prop>
+    <blue-prop>an2/controls/light/ext-blue</blue-prop>
+  </emission>
+</animation>
+<!--UV staff-->
+<animation>
+   <type>select</type>
+   <object-name>base_uv</object-name>
+   <object-name>needle_uv</object-name>
+   <condition>
+   	<property>an2/controls/switches/uv_light</property>
+   </condition>
+</animation>
+
+<animation>
+  <type>material</type>
+  <object-name>base_uv</object-name>
+  <object-name>needle_uv</object-name>
+ <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+  
+<!--Needles-->
+<animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <object-name>needle_uv</object-name>
+    <property>an2/instrumentation/va-3/indicated-value</property>
+    <factor>-1.47</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				an2.va_volts();
+			</script>
+		</binding>
+		<mod-up>
+		 <binding>
+			<command>nasal</command>
+			<script>
+				an2.va_ampers();
+			</script>
+		 </binding>
+		</mod-up>
+	</action>
+</animation>
+
+</PropertyList>

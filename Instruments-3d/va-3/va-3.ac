@@ -1,0 +1,130 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1.001" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+MATERIAL "Material" rgb 1 1 0 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 32 trans 0
+OBJECT world
+kids 6
+OBJECT poly
+name "base"
+data 8
+Mesh.005
+texture "va-3_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000301 0.030997 0.03025
+0.000301 -0.030257 0.03025
+0.000301 -0.030257 -0.0307
+0.000301 0.030997 -0.0307
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.006
+texture "va-3_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000642 0.030364 -0.024385
+0.000642 -0.018774 -0.024385
+0.000642 -0.018774 0.025173
+0.000642 0.030364 0.025173
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0
+OBJECT poly
+name "hs"
+data 5
+Plane
+crease 30.000000
+numvert 4
+0.005899 -0.028939 0.000833
+0.005899 -0.028939 0.014628
+0.005899 -0.015144 0.014628
+0.005899 -0.015144 0.000833
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "needle"
+data 8
+Mesh.007
+texture "va-3_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.00252 0.012619 0.013676
+0.00252 0.007479 0.017013
+0.00252 -0.010508 -0.010673
+0.00252 -0.005368 -0.01401
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.770654976368 0.878598988056
+1 -0.0887145027518 0.878598988056
+2 -0.0887145027518 0.136411994696
+3 0.770654976368 0.136411994696
+kids 0
+OBJECT poly
+name "needle_uv"
+data 8
+Mesh.008
+texture "va-3_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.002826 0.001496 -0.001484
+0.002826 -0.001841 0.000682
+0.002826 0.008386 0.016424
+0.002826 0.011722 0.014258
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0.0350036993623 0.467698991299
+0 0.675624012947 0.467698991299
+3 0.675624012947 0.881761014462
+2 0.0350036993623 0.881761014462
+kids 0
+OBJECT poly
+name "poly2"
+data 8
+Mesh.009
+texture "va-3_3.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.004175 0.031035 -0.030783
+0.004175 -0.030219 -0.030783
+0.004175 -0.030219 0.029854
+0.004175 0.031035 0.029854
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0

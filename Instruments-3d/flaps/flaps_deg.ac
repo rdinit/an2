@@ -1,0 +1,89 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 1 shi 12 trans 0
+OBJECT world
+kids 4
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "flaps_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000183 0.029653 0.028023
+0.000183 -0.028561 0.028023
+0.000183 -0.028561 -0.028852
+0.000183 0.029653 -0.028852
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "flaps_gauge_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.00052 0.025887 -0.031559
+0.00052 -0.025348 -0.031559
+0.000519 -0.025348 0.018234
+0.00052 0.025887 0.018234
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0
+OBJECT poly
+name "needle"
+data 8
+Mesh.002
+texture "needle.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000586 0.023646 -0.003966
+0.000586 0.023646 0.003004
+0.000586 -0.012083 0.003004
+0.000586 -0.012083 -0.003966
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.990320980549 0.978753983974
+1 -0.0252989996225 0.978753983974
+2 -0.0252989996225 0.302971988916
+3 0.990320980549 0.302971988916
+kids 0
+OBJECT poly
+name "needle_uv"
+data 8
+Mesh.003
+texture "needle_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000889 -0.012082 -0.003479
+0.000889 -0.012083 0.002341
+0.000889 0.022777 0.002341
+0.000889 0.022778 -0.003479
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 -0.0252989996225 0.302971988916
+0 0.990320980549 0.302971988916
+3 0.990320980549 0.978753983974
+2 -0.0252989996225 0.978753983974
+kids 0

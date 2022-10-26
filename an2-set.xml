@@ -1,0 +1,1670 @@
+<?xml version="1.0"?>
+<!--
+############################################################################
+#    Copyright 								   #
+#									   #
+#									   #
+#    (C) 2010 by Yurik V. Nikiforoff - port for FGFS, 2d & 3d panels, FDM, #
+#	instruments, animations, systems and over.		 	   #
+#    	yurik@megasignal.com						   #
+#                                                                          #
+#    This program is free software; you can redistribute it and#or modify  #
+#    it under the terms of the GNU General Public License as published by  #
+#    the Free Software Foundation; either version 2 of the License, or     #
+#    (at your option) any later version.                                   #
+#                                                                          #
+#    This program is distributed in the hope that it will be useful,       #
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of        #
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         #
+#    GNU General Public License for more details.                          #
+#                                                                          #
+#    You should have received a copy of the GNU General Public License     #
+#    along with this program; if not, write to the                         #
+#    Free Software Foundation, Inc.,                                       #
+#    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             #
+############################################################################		  -->
+
+<PropertyList>
+
+  <sim>
+    <description>Legendary Russian AN-2 v2.0</description>
+    <author>Yurik V. Nikiforoff aka Yurik_nsk</author>
+    <author>Yemelianov A.V. aka Dust (www.airwar.ru/other/3m.html) - new 3D model</author>
+    <status>early-production</status>
+    <rating>
+      <FDM type="int">1</FDM>
+      <systems type="int">2</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">3</model>
+    </rating>
+    <tags>
+      <tag>transport</tag>
+      <tag>bush-plane</tag>
+      <tag>antonov</tag>
+      <tag>1930s</tag>
+      <tag>1940s</tag>
+      <tag>1950s</tag>
+      <tag>1960s</tag>
+      <tag>1970s</tag>
+      <tag>biplane</tag>
+      <tag>fixed-gear</tag>
+      <tag>tail-dragger</tag>
+      <tag>propeller</tag>
+      <tag>piston</tag>
+      <tag>radial</tag>
+      <tag>single-engine</tag>
+      <tag>supercharged</tag>
+      <tag>variable-pitch</tag>
+    </tags>
+    <help>
+      <title>An-2 v2.0</title>
+      <line>________________________Procedures_________________________</line>
+      <line>Autostart: press "s" button </line>
+      <line>Simple AP on/off: F11 </line>
+      <line>Preferred Takeoff: nominal, manifold pressure 900 mmHg, rotate at 110 km/h </line>
+      <line>Extremal takeoff: flaps to 20', full throttle up to 5 min</line>
+      <line>Climbout: no flaps, pressure 900 mmHg, 140 km/h</line>
+      <line>Cruise: pressure 615-745 mmHg, speed up to 225 km/h</line>
+      <line>Landing: 30' flaps, 90 km/h. </line>
+    </help>
+
+    <checklists>
+      <group>
+        <name>1. Startup</name>
+        <!-- source: https://invidio.us/watch?v=EojvWYCFkhY -->
+
+        <checklist>
+          <title>Pre-startup</title>
+          <item>
+            <name>Pneumatic brake pressure</name>
+            <value>10 kg/cm2 or more</value>
+          </item>
+          <item>
+            <name>Parking brake</name>
+            <value>ON</value>
+            <condition>
+              <property>controls/gear/brake-parking</property>
+            </condition>
+          </item>
+        </checklist>
+
+        <checklist>
+          <title>Circuit Breakers: instruments</title>
+          <item>
+            <name>BENZINOMER fuel gauge</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/sbess_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>0.0100</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>EMI-3K triple engine gauge</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/emi_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>0.0300</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Flaps indicator</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/flaps_power_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>0.0517</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Cylinder Head and Oil Temperature Indicator</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/oil_power_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>0.0734</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+        </checklist>
+        
+        <checklist>
+          <title>Circuit breakers: Electrical flight controls</title>
+          <item>
+            <name>Flaps up</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/up_flaps_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.1217</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Flaps</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/flaps_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.1000</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Flaps Down</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/dn_flaps_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.0800</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Aileron Trim</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/ailerons_trim_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.0567</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Elevator Trim</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/elevator_trim_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.0350</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Rudder Trim</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/rudder_trim_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>-0.0125</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+        </checklist>
+        
+        <checklist>
+          <title>Cirbuit Breakers: Avionics</title>
+          <!-- ADF, radio altimeter and other radios -->
+          <item>
+            <name>UKV</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/ukv_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.0242</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>YADRO</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/yadro_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.0442</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>SPU</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/spu_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.0667</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>ARK automatic direction finder</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/arp_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.0883</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>MRV</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/mrv_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.1100</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>SIGNAL (alarm)</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/alarm_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.1292</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>RV radio-altimeter</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/rv_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0567</x-m>
+              <y-m>0.1525</y-m>
+              <z-m>0.6867</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+        </checklist>
+
+        <checklist>
+          <title>Engine</title>
+          <item>
+            <name>Fuel selector</name>
+            <value>BOTH OPEN</value>
+            <condition>
+              <equals>
+                <property>an2/instrumentation/fuel-select/position</property>
+                <value>2</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.5183</x-m>
+              <y-m>-0.7425</y-m>
+              <z-m>0.1867</z-m>
+              <scale>1.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Manual crank to turn the engine to distribute oil</name>
+            <value>6 blades (1.5 turn)</value>
+          </item>
+          <item>
+            <name>Engine primer</name>
+            <value>twice</value>
+          </item>
+          <item>
+            <name>Yoke and pedals</name>
+            <value>UNLOCKED</value>
+          </item>
+          <item>
+            <name>Engine starter circuit breaker</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/starter_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.3183</y-m>
+              <z-m>0.6483</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Battery</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/battery_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1308</x-m>
+              <y-m>-0.0550</y-m>
+              <z-m>0.4425</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Voltage</name>
+            <value>28</value>
+            <condition>
+              <greater-than>
+                <property>an2/systems/electrical/bus-27</property>
+                <value>26.0</value>
+              </greater-than>
+            </condition>
+            <marker>
+              <x-m>2.0492</x-m>
+              <y-m>-0.1275</y-m>
+              <z-m>0.5000</z-m>
+              <scale>2.8833</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Generator</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/generator</property>
+            </condition>
+            <marker>
+              <x-m>2.1300</x-m>
+              <y-m>-0.0767</y-m>
+              <z-m>0.4425</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Manual fuel pump</name>
+            <value>Actuate 5 times</value>
+          </item>
+          <item>
+            <name>Throttle</name>
+            <value>100%</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/throttle</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.4167</x-m>
+              <y-m>-0.0517</y-m>
+              <z-m>0.4000</z-m>
+              <scale>5.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Throttle</name>
+            <value>10%</value>
+            <condition>
+              <and>
+                <less-than>
+                  <property>controls/engines/engine/throttle</property>
+                  <value>0.11</value>
+                </less-than>
+                <greater-than>
+                  <property>controls/engines/engine/throttle</property>
+                  <value>0.09</value>
+                </greater-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.4167</x-m>
+              <y-m>-0.0517</y-m>
+              <z-m>0.4000</z-m>
+              <scale>5.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Engine starter: spin flywheel</name>
+            <value>LEFT for 10 s then release</value>
+            <condition>
+              <equals>
+                <property>an2/controls/switches/starter_selector_deg</property>
+                <value>-60</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.2167</y-m>
+              <z-m>0.6483</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Amperes</name>
+            <value>8</value>
+            <marker>
+              <x-m>2.0492</x-m>
+              <y-m>-0.1275</y-m>
+              <z-m>0.5000</z-m>
+              <scale>2.8833</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Magnetos</name>
+            <value>1+2</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/magnetos</property>
+                <value>3</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.2667</y-m>
+              <z-m>0.6483</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Engine starter: engage flywheel</name>
+            <value>RIGHT for 5 s then release</value>
+            <condition>
+              <equals>
+                <property>an2/controls/switches/starter_selector_deg</property>
+                <value>60</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.1892</y-m>
+              <z-m>0.6483</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Adjust engine RPM</name>
+            <value>450</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>430</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>480</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Engine starter circuit breaker</name>
+            <value>OFF</value>
+            <condition>
+              <not>
+                <property>an2/instrumentation/starter/serviceable</property>
+              </not>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.3183</y-m>
+              <z-m>0.6483</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Oil pressure</name>
+            <value>4 kg/cm2</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.2900</y-m>
+              <z-m>0.3150</z-m>
+              <scale>1.8667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Fuel pressure</name>
+            <value>0.2-0.35 kg/cm2</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.3267</y-m>
+              <z-m>0.3150</z-m>
+              <scale>1.8667</scale>
+            </marker>
+          </item>
+        </checklist>
+        <checklist>
+          <title>Engine warm-up</title>
+          <item>
+            <name>Propeller pitch</name>
+            <value>Full Fine</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/propeller-pitch</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Cylinder head temperature</name>
+            <value>50-70 deg C</value>
+            <marker>
+              <x-m>2.0592</x-m>
+              <y-m>-0.2300</y-m>
+              <z-m>0.3675</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Oil temperature</name>
+            <value>25 deg C</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.3108</y-m>
+              <z-m>0.3525</z-m>
+              <scale>2.3167</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Adjust engine RPM</name>
+            <value>800</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>780</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>820</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Cylinder head temperature</name>
+            <value>100 deg C</value>
+            <marker>
+              <x-m>2.0592</x-m>
+              <y-m>-0.2300</y-m>
+              <z-m>0.3675</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Oil temperature</name>
+            <value>40 deg C</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.3108</y-m>
+              <z-m>0.3525</z-m>
+              <scale>2.3167</scale>
+            </marker>
+          </item>
+          <!--item>
+              this one is not in the fgfs model
+            <name>Emergency flaps-up switch red cover above throttle</name>
+            <value>ON</value>
+          </item-->
+          <item>
+            <name>Adjust engine RPM</name>
+            <value>2000</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1980</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>2020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Cylinder head temperature</name>
+            <value>160 deg C</value>
+            <marker>
+              <x-m>2.0592</x-m>
+              <y-m>-0.2300</y-m>
+              <z-m>0.3675</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Oil temperature</name>
+            <value>70 deg C</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.3108</y-m>
+              <z-m>0.3525</z-m>
+              <scale>2.3167</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Magnetos</name>
+            <value>1</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/magnetos</property>
+                <value>1</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Check engine RPM</name>
+            <value>1940</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1920</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>2020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Magnetos</name>
+            <value>2</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/magnetos</property>
+                <value>2</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Check engine RPM</name>
+            <value>1940</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1920</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>2020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Magnetos</name>
+            <value>1+2</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/magnetos</property>
+                <value>3</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Check engine RPM</name>
+            <value>2000</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1980</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>2020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Propeller pitch</name>
+            <value>Full coarse</value>
+          </item>
+          <item>
+            <name>Check engine RPM</name>
+            <value>1500-1600</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1480</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1620</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Propeller pitch</name>
+            <value>Full Fine</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/propeller-pitch</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Reduce throttle until generator switches off</name>
+            <value>950</value> <!-- 850 in real life -->
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>930</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>980</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0492</x-m>
+              <y-m>-0.2142</y-m>
+              <z-m>0.5558</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Adjust engine RPM until generator switches on again</name>
+            <value>1000</value> <!-- 950 in real life -->
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>980</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0492</x-m>
+              <y-m>-0.2142</y-m>
+              <z-m>0.5558</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+        </checklist>
+        <checklist>
+          <title>Instruments</title>
+          <item>
+            <name>PO-500 Inverter</name>
+            <value>ON</value>
+            <condition>
+              <greater-than>
+                <property>an2/systems/electrical/bus-115</property>
+                <value>112.0</value>
+              </greater-than>
+            </condition>
+            <marker>
+              <x-m>2.0558</x-m>
+              <y-m>-0.0708</y-m>
+              <z-m>0.5008</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>GIK horizontal situation indicator</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/instrumentation/gik/serviceable</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>-0.0358</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>GPK gyro compass</name>
+            <value>ON</value>
+            <condition>
+              <property>an2/controls/switches/agk_switch</property>
+            </condition>
+            <marker>
+              <x-m>2.1358</x-m>
+              <y-m>-0.0142</y-m>
+              <z-m>0.4433</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Artificial Horizon</name>
+            <value>UNCAGED</value>
+            <condition>
+              <not>
+                <property>instrumentation/attitude-indicator/caged-flag</property>
+              </not>
+            </condition>
+            <marker>
+              <x-m>2.0675</x-m>
+              <y-m>-0.4050</y-m>
+              <z-m>0.5267</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>GPK gyro compass</name>
+            <value>UNCAGED</value>
+            <condition>
+              <not>
+                <property>an2/instrumentation/gpk-48/caged-flag</property>
+              </not>
+            </condition>
+            <marker>
+              <x-m>2.0550</x-m>
+              <y-m>-0.3700</y-m>
+              <z-m>0.4817</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>GIK horizontal situation indicator</name>
+            <value>Aligned</value>
+            <condition>
+              <less-than>
+                <property>an2/instrumentation/gik/offset</property>
+                <value>0.1</value>
+              </less-than>
+            </condition>
+            <marker>
+              <x-m>2.0675</x-m>
+              <y-m>-0.4508</y-m>
+              <z-m>0.4267</z-m>
+              <scale>1.0000</scale>
+            </marker>
+          </item>
+        </checklist>
+      </group>
+
+      <group>
+        <name>2. Flight</name>
+        <checklist>
+          <title>Taxi</title>
+          <item>
+            <name>Flight Controls</name>
+            <value>Free</value>
+          </item>
+          <item>
+            <name>Brakes</name>
+            <value>RELEASED</value>
+            <condition>
+              <not>
+                <property>controls/gear/brake-parking</property>
+              </not>
+            </condition>
+          </item>
+        </checklist>
+        <checklist>
+          <title>Take off</title>
+          <item>
+            <name>Propeller pitch</name>
+            <value>Full Fine</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/propeller-pitch</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Flaps</name>
+            <value>Retracted</value>
+            <condition>
+              <equal>
+                <property>controls/flight/flaps</property>
+                <value>0</value>
+              </equal>
+            </condition>
+          </item>
+          <item>
+            <name>Throttle</name>
+            <value>100%</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/throttle</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.4167</x-m>
+              <y-m>-0.0517</y-m>
+              <z-m>0.4000</z-m>
+              <scale>5.0000</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Manifold pressure</name>
+            <value>&gt; 900 mm Hg</value>
+            <condition>
+              <greater-than>
+                <property>engines/engine/mp-inhg</property>
+                <value>35.40</value>
+              </greater-than>
+            </condition>
+            <marker>
+              <x-m>2.0467</x-m>
+              <y-m>-0.2467</y-m>
+              <z-m>0.5025</z-m>
+              <scale>3.1500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Rotation airspeed</name>
+            <value>110 km/h</value>
+            <marker>
+              <x-m>2.0350</x-m>
+              <y-m>-0.5633</y-m>
+              <z-m>0.5000</z-m>
+              <scale>3.8000</scale>
+            </marker>
+          </item>
+        </checklist>
+        <checklist>
+          <title>Climb</title>
+          <item>
+            <name>Propeller pitch</name>
+            <value>Full Fine</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/propeller-pitch</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Manifold pressure</name>
+            <value>900 mm Hg</value>
+            <condition>
+              <and>
+                <less-than>
+                  <property>controls/engines/engine/throttle</property>
+                  <value>0.99</value>
+                </less-than>
+                <greater-than>
+                  <property>engines/engine/mp-inhg</property>
+                  <value>34.0</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/mp-inhg</property>
+                  <value>35.44</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0467</x-m>
+              <y-m>-0.2467</y-m>
+              <z-m>0.5025</z-m>
+              <scale>3.1500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Airspeed</name>
+            <value>140 km/h</value>
+            <marker>
+              <x-m>2.0350</x-m>
+              <y-m>-0.5633</y-m>
+              <z-m>0.5000</z-m>
+              <scale>3.8000</scale>
+            </marker>
+          </item>
+        </checklist>
+        <checklist>
+          <title>Cruise</title>
+          <item>
+            <name>Manifold pressure</name>
+            <value>&lt; 900 mm Hg</value>
+            <condition>
+              <and>
+                <less-than>
+                  <property>controls/engines/engine/throttle</property>
+                  <value>0.99</value>
+                </less-than>
+                <less-than>
+                  <property>engines/engine/mp-inhg</property>
+                  <value>35.44</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0467</x-m>
+              <y-m>-0.2467</y-m>
+              <z-m>0.5025</z-m>
+              <scale>3.1500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Adjust engine RPM with propeller pitch</name>
+            <value>1800-2000</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1780</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>2020</value>
+                </less-than>
+                <less-than>
+                  <property>controls/engines/engine/propeller-pitch</property>
+                  <value>0.8</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+        </checklist>
+      </group>
+
+      <group>
+        <name>3. Shutdown</name>
+        <checklist>
+          <title>Shutdown</title>
+          <item>
+            <name>Adjust engine RPM</name>
+            <value>800</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>780</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>820</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Cylinder head temperature</name>
+            <value>&lt; 160 deg C</value>
+            <marker>
+              <x-m>2.0592</x-m>
+              <y-m>-0.2300</y-m>
+              <z-m>0.3675</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Oil temperature</name>
+            <value>70 deg C</value>
+            <marker>
+              <x-m>2.0900</x-m>
+              <y-m>-0.3108</y-m>
+              <z-m>0.3525</z-m>
+              <scale>2.3167</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Engine RPM</name>
+            <value>1000</value>
+            <condition>
+              <and>
+                <greater-than>
+                  <property>engines/engine/rpm</property>
+                  <value>980</value>
+                </greater-than>
+                <less-than>
+                  <property>engines/engine/rpm</property>
+                  <value>1020</value>
+                </less-than>
+              </and>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Fuel selector</name>
+            <value>CLOSED</value>
+            <condition>
+              <equals>
+                <property>an2/instrumentation/fuel-select/position</property>
+                <value>0</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.5183</x-m>
+              <y-m>-0.7425</y-m>
+              <z-m>0.1867</z-m>
+              <scale>1.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Throttle</name>
+            <value>100%</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/throttle</property>
+                <value>1.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Wait until engine RPM</name>
+            <value>0</value>
+            <condition>
+              <equals>
+                <property>engines/engine/rpm</property>
+                <value>0</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.0608</x-m>
+              <y-m>-0.3000</y-m>
+              <z-m>0.4317</z-m>
+              <scale>2.5667</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Throttle</name>
+            <value>0%</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/throttle</property>
+                <value>0.0</value>
+              </equals>
+            </condition>
+          </item>
+          <item>
+            <name>Magnetos</name>
+            <value>0</value>
+            <condition>
+              <equals>
+                <property>controls/engines/engine/magnetos</property>
+                <value>0</value>
+              </equals>
+            </condition>
+            <marker>
+              <x-m>2.0450</x-m>
+              <y-m>-0.2667</y-m>
+              <z-m>0.6483</z-m>
+              <scale>2.9500</scale>
+            </marker>
+          </item>
+          <item>
+            <name>Cowl flaps</name>
+            <value>CLOSED</value>
+          </item>
+          <item>
+            <name>Circuit breakers</name>
+            <value>All OFF</value>
+          </item>
+          <item>
+            <name>Yoke and pedals</name>
+            <value>LOCKED</value>
+          </item>
+        </checklist>
+      </group>
+    </checklists>
+
+    <model>
+      <path>Aircraft/an2/Model/an2-model.xml</path>
+    </model>
+
+    <flight-model>jsb</flight-model>
+    <aero>an2</aero>
+    <startup>
+      <splash-texture>Aircraft/an2/splash.png</splash-texture>
+    </startup>
+
+    <flaps>
+      <setting>0.0</setting>
+      <setting>0.25</setting>
+      <setting>0.5</setting>
+      <setting>0.75</setting>
+      <setting>1.0</setting>
+    </flaps>
+    
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+    
+    <view>
+      <name>Captain View</name>
+      <!-- set true if you want 3d cockpit -->
+      <internal archive="y">true</internal>
+      <!--Captain view-->
+      <config>
+        <x-offset-m archive="y">-0.45</x-offset-m>
+        <y-offset-m archive="y">0.9</y-offset-m>
+        <z-offset-m archive="y">-0.9</z-offset-m>
+        <pitch-offset-deg type="double">-15.0</pitch-offset-deg>
+      </config>
+    </view>
+    <view n="101">
+      <name>Copilot View</name>
+      <type>lookfrom</type>
+      <internal type="bool">true</internal>
+      <config>
+	<from-model type="bool">true</from-model>
+	<x-offset-m type="double" archive="y">0.45</x-offset-m>
+	<y-offset-m type="double" archive="y">0.9</y-offset-m>
+	<z-offset-m type="double" archive="y">-0.9</z-offset-m>
+	<pitch-offset-deg type="double">-15.0</pitch-offset-deg>
+	<from-model-idx type="int">0</from-model-idx>
+	<ground-level-nearplane-m type="double">0.5f</ground-level-nearplane-m>
+	<default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+	<default-pitch-deg type="double">0</default-pitch-deg>
+	<default-heading-deg type="double">0</default-heading-deg>
+	<front-direction-deg type="double">0</front-direction-deg>
+	<front-left-direction-deg type="double">45</front-left-direction-deg>
+	<left-direction-deg type="double">90</left-direction-deg>
+	<back-left-direction-deg type="double">135</back-left-direction-deg>
+	<back-direction-deg type="double">180</back-direction-deg>
+	<back-right-direction-deg type="double">225</back-right-direction-deg>
+	<right-direction-deg type="double">270</right-direction-deg>
+	<front-right-direction-deg type="double">315</front-right-direction-deg>
+	<dynamic-view type="bool">true</dynamic-view>
+      </config>
+    </view>
+
+    <sound>
+      <path archive="y">Aircraft/an2/Systems/an2-sound.xml</path>
+    </sound>
+    <systems>
+      <property-rule n="100">
+        <name>Instrument filters</name>
+        <path>Aircraft/an2/Systems/instrument-filters.xml</path>
+      </property-rule>
+    </systems>
+  </sim>
+
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <name>Collector tank</name>
+        <hidden type="bool">1</hidden>
+	<level-gal_us>0</level-gal_us>
+      </tank>
+      <tank n="1">
+        <name>Right wing</name>
+	<level-gal_us>150</level-gal_us>
+      </tank>
+      <tank n="2">
+        <name>Left wing</name>
+	<level-gal_us>150</level-gal_us>
+      </tank>
+    </fuel>
+  </consumables>
+
+  <controls>
+    <engines>
+      <engine>
+	<propeller-pitch>0.0</propeller-pitch>
+      </engine>
+    </engines>
+  </controls>
+  <an2>
+    <x>2.2</x>
+    <y>-0.5</y>
+    <z>0.5</z>
+
+    <instrumentation>
+      <fuel-select>
+	<position archive="y" type="double"> 0 </position>
+      </fuel-select>
+      <gik >
+	<offset>150</offset>
+      </gik>
+      <va-3>
+	<volts>0</volts>
+      </va-3>
+      <gpk-48>
+	<caged-flag archive="y">1</caged-flag>
+	<true-heading-deg>0.0</true-heading-deg>
+	<indicated-heading-deg>0.0</indicated-heading-deg>
+      </gpk-48>
+      <starter>
+	<spin type="double">0.0</spin>
+      </starter>
+      <sbess>
+	<indicated-fuel-l>0</indicated-fuel-l>
+      </sbess>
+    </instrumentation>
+    <controls>
+      <door-pos-norm>0</door-pos-norm>
+      <switches>
+	<yadro_switch archive="y" type="bool">0</yadro_switch>
+	<light_1_switch archive="y" type="bool">0</light_1_switch>
+	<light_2_switch archive="y" type="bool">0</light_2_switch>
+	<adf-selector  archive="y">1</adf-selector>
+	<adf-selector-sw  archive="y">-50.0</adf-selector-sw>
+	<fuel_selector  archive="y">0</fuel_selector>
+	<aileron-trim archive="y">0</aileron-trim>
+	<elevator-trim  archive="y">0</elevator-trim>
+	<rudder-trim  archive="y">0</rudder-trim>
+	<air  archive="y">0</air>
+	<oil  archive="y">0</oil>
+	<mixture archive="y" type="double">1.1</mixture>
+	<prop_handle archive="y" type="double">1.0</prop_handle>
+      </switches>
+      <light>
+	<!--UV light intensivity-->
+	<uv-bright archive="y" type="double">0.0</uv-bright>
+	<!--External instrument light-->
+	<ext-red archive="y" type="double">0.0</ext-red>
+	<ext-green archive="y" type="double">0.0</ext-green>
+	<ext-blue archive="y" type="double">0.0</ext-blue>
+	
+	<ext-red-standby archive="y" type="double">0.1</ext-red-standby>
+	<ext-green-standby archive="y" type="double">0.1</ext-green-standby>
+	<ext-blue-standby archive="y" type="double">0.6</ext-blue-standby>
+	
+	<!--Internal instrument light-->
+	<int-red archive="y" type="double">0.0</int-red>
+	<int-green archive="y" type="double">0.0</int-green>
+	<int-blue archive="y" type="double">0.0</int-blue>
+	
+	<int-red-standby archive="y" type="double">0.7</int-red-standby>
+	<int-green-standby archive="y" type="double">0.6</int-green-standby>
+	<int-blue-standby archive="y" type="double">0.5</int-blue-standby>
+	
+      </light>
+    </controls>
+    <systems>
+      <dampers>
+	<oil-damper  archive="y">0</oil-damper>
+	<air-damper  archive="y">0</air-damper>
+      </dampers>
+      <slats>
+	<position  archive="y">0.0</position>
+      </slats>
+      
+    </systems>
+    <mod-views>
+      <mod type="bool">0</mod>
+      <mod-view>
+	<x-offset-m archive="y">-0.45</x-offset-m>
+	<y-offset-m archive="y">0.9</y-offset-m>
+	<z-offset-m archive="y">-0.9</z-offset-m>
+	<field-of-view archive="y">27.0</field-of-view>
+	<heading-offset-deg type="double">-1.5</heading-offset-deg>
+	<pitch-offset-deg type="double">-28.0</pitch-offset-deg>
+	<roll-offset-deg type="double">0.0</roll-offset-deg>
+      </mod-view>
+      <mod-view>
+	<x-offset-m archive="y">0.45</x-offset-m>
+	<y-offset-m archive="y">0.9</y-offset-m>
+	<z-offset-m archive="y">-0.9</z-offset-m>
+	<field-of-view archive="y">29.0</field-of-view>
+	<heading-offset-deg type="double">4.0</heading-offset-deg>
+	<pitch-offset-deg type="double">-25.0</pitch-offset-deg>
+	<roll-offset-deg type="double">0.0</roll-offset-deg>
+      </mod-view>
+    </mod-views>
+
+  </an2>
+
+  <input>
+    <keyboard>
+      <!--    <key n="357">
+	   <name>up</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/z</property>
+	   <step>0.001</step>
+	   </binding>
+	   </key>
+	   <key n="359">
+	   <name>down</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/z</property>
+	   <step>-0.001</step>
+	   </binding>
+	   </key>
+	   
+	   <key n="356">
+	   <name>left</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/y</property>
+	   <step>-0.001</step>
+	   </binding>
+	   </key>
+	   <key n="358">
+	   <name>right</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/y</property>
+	   <step>0.001</step>
+	   </binding>
+	   </key>
+	   
+	   <key n="360">
+	   <name>fwd</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/x</property>
+	   <step>-0.001</step>
+	   </binding>
+	   </key>
+	   <key n="361">
+	   <name>backwd</name>
+	   <binding n="0">
+	   <command>property-adjust</command>
+	   <property>/an2/x</property>
+	   <step>0.001</step>
+	   </binding>
+	   </key>-->
+
+      <!--Unbind spacebar & print help about starter procedure-->
+      <!--View shortcuts-->
+      <key n="96">
+	<name>~</name>
+	<desc>Custom view modifier</desc>
+	<binding>
+	  <command>nasal</command>
+	  <script>view.modView(1)</script>
+	</binding>
+	<mod-up>
+	  <binding>
+	    <command>nasal</command>
+	    <script>view.modView(0)</script>
+	  </binding>
+	</mod-up>
+      </key>
+      
+      <key n="49">
+	<name>1</name>
+	<desc>Captain view</desc>
+	<binding>
+	  <command>nasal</command>
+	  <script>view.forceView(0);</script>
+	</binding>
+      </key>
+      
+      <key n="50">
+	<name>2</name>
+	<desc>Copilot view</desc>
+	<binding>
+	  <command>nasal</command>
+	  <script>view.forceView(1);</script>
+	</binding>
+      </key>
+
+      <key n="109">
+        <mod-alt>
+          <name>Alt+m</name>
+          <desc>Marker-Adjust dialog</desc>
+          <binding>
+            <command>nasal</command>
+            <script>fgcommand ("dialog-show", props.Node.new ({"dialog-name" : "marker-adjust"}));</script>
+          </binding>
+        </mod-alt>
+      </key>
+
+      <key n="115">
+	<name>s</name>
+	<desc>Auto Startup</desc>
+	<binding n="0">
+	  <command>nasal</command>
+	  <script>an2.autostart()</script>
+	</binding>
+      </key>
+
+      <key n="267">
+	<name>F11</name>
+	<desc>Simply AP</desc>
+	<binding n="0">
+	  <command>nasal</command>
+	  <script>an2.simply_ap()</script>
+	</binding>
+      </key>
+    </keyboard>		
+  </input>
+
+  <!-- Nasal files/scripts -->
+
+  <nasal>
+    <an2>
+      <file>Aircraft/an2/Nasal/an2.nas</file>
+    </an2>
+    <electrical>
+      <file>Aircraft/an2/Nasal/electrical.nas</file>
+    </electrical>
+    <controls>
+      <file>Aircraft/an2/Nasal/controls.nas</file>
+    </controls>
+    <help>
+      <file>Aircraft/an2/Nasal/help.nas</file>
+    </help>
+    <view>
+      <file>Aircraft/an2/Nasal/view.nas</file>
+    </view>
+  </nasal>
+
+
+  <!--Start with caged attitude indicator-->
+  <instrumentation>
+    <attitude-indicator>
+      <caged-flag>1</caged-flag>
+    </attitude-indicator>
+    <marker-beacon>
+      <audio-btn>false</audio-btn>
+      <volume>0</volume>
+    </marker-beacon>
+  </instrumentation>
+
+  <payload>
+    <weight>
+      <name>Crew</name>
+      <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+      <min-lb type="double">80</min-lb>
+      <max-lb type="double">440</max-lb>
+    </weight>
+    <weight>
+      <name>Passengers and Cargo</name>
+      <weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+      <min-lb type="double">0</min-lb>
+      <max-lb type="double">2400</max-lb>
+      <!-- Wikipedia says 4718 lbs but that's just the difference
+           between MTOW and empty weight, so includes fuel. I use 12
+           pax@200 lbs each. -->
+    </weight>
+  </payload>
+
+  <limits>
+    <mass-and-balance>
+      <!-- source Wikipedia -->
+      <maximum-takeoff-mass-lbs type="double">11993</maximum-takeoff-mass-lbs>
+    </mass-and-balance>
+  </limits>
+
+</PropertyList>

@@ -1,0 +1,172 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+MATERIAL "Material" rgb 1 1 0 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 32 trans 0
+OBJECT world
+kids 8
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "uvo_eng_bck.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000117 -0.041219 0.041066
+0.000117 -0.040932 -0.041341
+0.000117 0.041308 -0.041053
+0.000117 0.041021 0.041353
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "uvo_eng_bck_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000242 -0.041379 0.041101
+0.000242 -0.041091 -0.041306
+0.000242 0.041149 -0.041018
+0.000242 0.040862 0.041388
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "front"
+data 8
+Mesh.006
+texture "uvo_eng_front.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.002432 0.04054 0.04136
+0.002432 0.040827 -0.041046
+0.002432 -0.041414 -0.041334
+0.002432 -0.041701 0.041073
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+1 1.0 1.0
+0 0.0 1.0
+3 0.0 0.0
+2 1.0 0.0
+kids 0
+OBJECT poly
+name "hs"
+data 5
+Plane
+crease 30.000000
+numvert 4
+0.002455 -0.045954 0.021104
+0.002455 -0.045954 0.042829
+0.002455 -0.02423 0.042829
+0.002455 -0.02423 0.021104
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "long_needle"
+data 8
+Mesh.004
+texture "uvo_eng_n1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001535 -0.002248 -0.0021
+0.001535 0.029687 -0.002086
+0.001535 0.029575 0.002085
+0.001535 -0.00236 0.002071
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.867187976837
+1 1.0 0.867187976837
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "long_needle_uv"
+data 8
+Mesh.005
+texture "uvo_eng_n1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001615 -0.002409 0.002064
+0.001615 0.029776 0.002079
+0.001615 0.029888 -0.002093
+0.001615 -0.002296 -0.002107
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+1 1.0 1.0
+0 0.0 1.0
+3 0.0 0.867187976837
+2 1.0 0.867187976837
+kids 0
+OBJECT poly
+name "short_needle"
+data 8
+Mesh.002
+texture "uvo_eng_n2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000917 -0.003327 0.00434
+0.000917 0.021478 0.004371
+0.000917 0.021564 -0.004361
+0.000917 -0.00324 -0.004391
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+1 1.0 1.0
+0 0.0 1.0
+3 0.0 0.710937976837
+2 1.0 0.710937976837
+kids 0
+OBJECT poly
+name "short_needle_uv"
+data 8
+Mesh.003
+texture "uvo_eng_n2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001044 -0.003161 -0.004255
+0.001044 0.021644 -0.004225
+0.001044 0.021557 0.004256
+0.001044 -0.003247 0.004226
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.710937976837
+1 1.0 0.710937976837
+2 1.0 1.0
+3 0.0 1.0
+kids 0

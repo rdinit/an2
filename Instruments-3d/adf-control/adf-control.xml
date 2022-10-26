@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2009 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################
+    
+    ************************* An-2 ver. 2.0 *************************************
+    -->
+
+<!-- ADF control gauge
+3D instrument for An-2-->
+<PropertyList>
+ <path>adf-control.ac</path>
+ <!--Panel low-res texture-->
+<!-- 
+ <animation>
+   <condition>
+     <property>an2/textures/low-res</property>
+   </condition>
+   <type>material</type>
+   <object-name>base</object-name>
+   <texture>ark-control_1_low.rgb</texture>
+   <ambient>
+     <red>1.0</red>
+     <green>1.0</green>
+     <blue>1.0</blue>
+   </ambient>
+ </animation>
+ -->
+<!-- Internal instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>base_s_meter</object-name>
+  <object-name>hand_rez</object-name>
+  <object-name>dec_rez</object-name>
+  <object-name>ones_rez</object-name>
+  <object-name>hand_osn</object-name>
+  <object-name>dec_osn</object-name>
+  <object-name>ones_osn</object-name>
+  <object-name>needle</object-name>
+  <emission>
+    <red-prop>an2/controls/light/int-red</red-prop>
+    <green-prop>an2/controls/light/int-green</green-prop>
+    <blue-prop>an2/controls/light/int-blue</blue-prop>
+  </emission>
+</animation>
+
+<!-- External instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>base</object-name>
+  <object-name>lamp_base_osn</object-name>
+  <object-name>lamp_base_rez</object-name>
+<!--  <object-name>hand_1</object-name>
+  <object-name>hand_2</object-name>-->
+<!--  <object-name>rezerv</object-name>
+  <object-name>osnovn</object-name>-->
+  <object-name>handle_rez</object-name>
+  <object-name>handle_osn</object-name>
+  <object-name>cyl_rez</object-name>
+  <object-name>cyl_osn</object-name>
+  <object-name>korp_rez</object-name>
+  <object-name>korp_osn</object-name>
+  <object-name>handle_main</object-name>
+  <object-name>cyl_main</object-name>
+  <object-name>rezerv</object-name>
+  <object-name>osnovn</object-name>
+  <object-name>hand_1</object-name>
+  <object-name>hand_2</object-name>
+
+  <emission>
+    <red-prop>an2/controls/light/ext-red</red-prop>
+    <green-prop>an2/controls/light/ext-green</green-prop>
+    <blue-prop>an2/controls/light/ext-blue</blue-prop>
+  </emission>
+</animation>
+
+
+<!--UV staff-->
+<!--Select-->
+<animation>
+   <type>select</type>
+   <object-name>base_uv</object-name>
+   <object-name>needle_uv</object-name>
+   <object-name>base_s_meter_uv</object-name>
+   <object-name>rezerv_uv</object-name>
+   <object-name>osnovn_uv</object-name>
+   <object-name>hand_rez_uv</object-name>
+   <object-name>dec_rez_uv</object-name>
+   <object-name>ones_rez_uv</object-name>
+   <object-name>hand_osn_uv</object-name>
+   <object-name>dec_osn_uv</object-name>
+   <object-name>ones_osn_uv</object-name>
+   <condition>
+   	<property>an2/controls/switches/uv_light</property>
+   </condition>
+</animation>
+<!--Emission-->
+<animation>
+  <type>material</type>
+  <object-name>base_uv</object-name>
+  <object-name>needle_uv</object-name>
+  <object-name>base_s_meter_uv</object-name>
+  <object-name>rezerv_uv</object-name>
+  <object-name>osnovn_uv</object-name>
+  <object-name>hand_rez_uv</object-name>
+  <object-name>dec_rez_uv</object-name>
+  <object-name>ones_rez_uv</object-name>
+  <object-name>hand_osn_uv</object-name>
+  <object-name>dec_osn_uv</object-name>
+  <object-name>ones_osn_uv</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+
+
+<!--Lamps-->
+<animation>
+  <type>material</type>
+  <object-name>lamp_osn</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.9</green>
+    <blue>0.2</blue>
+    <factor-prop>an2/instrumentation/adf/lamp_osn</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>lamp_rez</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.9</green>
+    <blue>0.2</blue>
+    <factor-prop>an2/instrumentation/adf/lamp_rez</factor-prop>
+  </emission>
+</animation>
+<!--Needles-->
+<animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>an2/instrumentation/adf/s_meter</property>
+    <factor>-100.0</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>needle_uv</object-name>
+  <property>an2/instrumentation/adf/s_meter</property>
+  <factor>-100.0</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Handles-->
+<animation>
+  <type>rotate</type>
+  <object-name>handle_main</object-name>
+  <property>an2/instrumentation/adf/selector</property>
+  <factor>-35.0</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.058</y-m>
+    <z-m>-0.008</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>vol_handle</object-name>
+  <property>instrumentation/adf/volume-norm</property>
+  <factor>-300.0</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.128</y-m>
+    <z-m>-0.0133</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>sw_handle</object-name>
+  <property>instrumentation/adf/ident-audible</property>
+  <factor>-60.0</factor>
+  <offset-deg>30.0</offset-deg>
+  <center>
+    <x-m>0.0005</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.0265</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+
+<!-- Digit wheels -->
+<!--Rezerv block-->
+<animation>
+  <type>rotate</type>
+  <object-name>hand_rez</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-hund</property>
+  <factor>-27.7</factor>
+  <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>hand_rez_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-hund</property>
+  <factor>-27.7</factor>
+  <center>
+    <x-m>-0.0035</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>dec_rez</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-dec</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.002</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>dec_rez_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-dec</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.0015</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>ones_rez</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-ones</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.002</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>ones_rez_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-rez-ones</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.0015</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Osnovn block-->
+<animation>
+  <type>rotate</type>
+  <object-name>hand_osn</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-hund</property>
+  <factor>-27.7</factor>
+  <center>
+    <x-m>-0.004</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>hand_osn_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-hund</property>
+  <factor>-27.7</factor>
+  <center>
+    <x-m>-0.0035</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>dec_osn</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-dec</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.002</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>dec_osn_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-dec</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.0015</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>ones_osn</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-ones</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.002</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>ones_osn_uv</object-name>
+  <property>an2/instrumentation/adf/indicated-sel-ones</property>
+  <factor>-36.0</factor>
+  <center>
+    <x-m>-0.0015</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.08</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+
+<!--Volume Handle-->
+<animation>
+	<type>pick</type>
+	<object-name>vol_handle</object-name>
+	<visible>true</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/adf/volume-norm</property>
+			<step>0.1</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+	</action>
+	<action>
+		<button>1</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/adf/volume-norm</property>
+			<step>-0.1</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+	</action>
+	<action>
+		<button>3</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/adf/volume-norm</property>
+			<step>0.1</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+	</action>
+	<action>
+		<button>4</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/adf/volume-norm</property>
+			<step>-0.1</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+	</action>
+</animation>
+
+<!--Audio switch-->
+<animation>
+	<type>pick</type>
+	<object-name>hs1</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				interpolate("instrumentation/adf/ident-audible", 1.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs2</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				interpolate("instrumentation/adf/ident-audible", 0.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<!--Frequency hotspots-->
+<animation>
+	<type>pick</type>
+	<object-name>hs1_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>100.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs2_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>-100.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs3_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>10.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs4_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>-10.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs5_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>1.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs6_osn</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selected-khz</property>
+			<step>-1.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<!--Standby -->
+<animation>
+	<type>pick</type>
+	<object-name>hs1_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>100.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs2_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>-100.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs3_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>10.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs4_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>-10.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs5_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>1.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+<animation>
+	<type>pick</type>
+	<object-name>hs6_rez</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/standby-khz</property>
+			<step>-1.0</step>
+			<min>150.0</min>
+			<max>1290</max>
+		</binding>
+	</action>
+</animation>
+
+<!--Main selector-->
+
+<animation>
+	<type>pick</type>
+	<object-name>handle_main</object-name>
+	<visible>true</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selector</property>
+			<step>1</step>
+			<min>0</min>
+			<max>3</max>
+		</binding>
+	</action>
+	<action>
+		<button>1</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selector</property>
+			<step>-1</step>
+			<min>0</min>
+			<max>3</max>
+		</binding>
+	</action>
+	<action>
+		<button>3</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selector</property>
+			<step>1</step>
+			<min>0</min>
+			<max>3</max>
+		</binding>
+	</action>
+	<action>
+		<button>4</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>an2/instrumentation/adf/selector</property>
+			<step>-1</step>
+			<min>0</min>
+			<max>3</max>
+		</binding>
+	</action>
+</animation>
+
+
+
+</PropertyList>

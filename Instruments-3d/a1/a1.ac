@@ -1,0 +1,134 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+OBJECT world
+kids 5
+OBJECT group
+name "uv_group"
+kids 2
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "a1_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000427 0.024393 -0.019911
+0.000427 -0.015354 -0.019911
+0.000427 -0.015354 0.01946
+0.000427 0.024393 0.01946
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0
+OBJECT poly
+name "needle_uv"
+data 8
+Mesh.002
+texture "a1_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.002415 -0.004104 0.01792
+0.002415 -0.0021 0.018273
+0.002415 0.00135 -0.001281
+0.002415 -0.000655 -0.001634
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0.0625 -0.0114008001983
+0 1.0 -0.0114008001983
+3 1.0 0.914381027222
+2 0.0625 0.914381027222
+kids 0
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "a1_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+7.7e-05 0.024706 0.023649
+7.7e-05 -0.023335 0.023649
+7.7e-05 -0.023335 -0.024152
+7.7e-05 0.024706 -0.024152
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "needle"
+data 8
+Mesh.003
+texture "a1_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.002355 -0.000646 -0.001672
+0.002355 0.001358 -0.001318
+0.002355 -0.002073 0.018133
+0.002355 -0.004077 0.01778
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 1.02147996426 0.763671994209
+1 0.0214843992144 0.763671994209
+2 0.0214843992144 -0.00585932005197
+3 1.02147996426 -0.00585938012227
+kids 0
+OBJECT poly
+name "poly1"
+data 8
+Mesh.004
+texture "a1_3.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.00407 0.008765 0.007331
+0.00407 -0.008654 0.007331
+0.00407 -0.008654 -0.009321
+0.00407 0.008765 -0.009321
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "poly2"
+data 8
+Mesh.005
+texture "a1_4.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.004053 0.024545 -0.024211
+0.004053 -0.023497 -0.024212
+0.004053 -0.023497 0.023589
+0.004053 0.024545 0.023589
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0

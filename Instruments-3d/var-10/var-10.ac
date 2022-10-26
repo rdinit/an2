@@ -1,0 +1,89 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+OBJECT world
+kids 4
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "var-10_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000509 -0.04957 0.043716
+0.000509 -0.049249 -0.053395
+0.000509 0.042678 -0.053056
+0.000509 0.042357 0.044055
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "vr-10_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000635 -0.035505 0.037383
+0.000635 -0.035256 -0.038307
+0.000635 0.035989 -0.038043
+0.000635 0.03574 0.037647
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "long_needle"
+data 8
+Mesh.002
+texture "var-10_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001945 -0.002223 0.033927
+0.001945 -0.002207 -0.003784
+0.001945 0.002446 -0.003652
+0.001945 0.00243 0.034059
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+0 0.0 0.0546907000244
+1 1.0 0.0546907000244
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "long_needle_uv"
+data 8
+Mesh.003
+texture "var-10_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.002055 0.002328 0.034059
+0.002055 0.002344 -0.003652
+0.002055 -0.002309 -0.003784
+0.002055 -0.002325 0.033927
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+1 1.0 1.0
+0 0.0 1.0
+3 0.0 0.0546907000244
+2 1.0 0.0546907000244
+kids 0

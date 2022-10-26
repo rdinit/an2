@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2010 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################
+    
+    ************************* An-2 ver. 2.0 *************************************
+
+    -->
+
+<PropertyList>
+
+ <fx>
+ 
+  <crank>
+   <name>engstart</name>
+   <path>Aircraft/an2/Sounds/xcan2_starter.wav</path>
+   <property>/engines/engine/cranking</property>
+   <volume>
+	<max>0.3</max>
+   </volume>
+  </crank>
+
+  <crank>
+   <name>crank</name>
+   <mode>looped</mode>
+   <path>Aircraft/an2/Sounds/an2_startup.wav</path>
+   <condition>
+    <property>/engines/engine/cranking</property>
+    <not>
+     <property>/engines/engine/running</property>
+    </not>
+   </condition>
+   <volume>
+	   <max>0.8</max>
+   </volume>
+  </crank>
+
+<stop>
+	<name>engine stop</name>
+	<path>Aircraft/an2/Sounds/an2_stop.wav</path>
+	<condition>
+		<property>/engines/engine/rpm</property>
+		<not>
+		<property>/engines/engine/running</property>
+		</not>
+		<not>
+		<property>/engines/engine/cranking</property>
+		</not>
+	</condition>
+	<volume>
+		<max>0.8</max>
+	</volume>
+</stop>
+
+
+<spinup>
+	<name>starter spinup</name>
+	<path>Aircraft/an2/Sounds/an2_gyro.wav</path>
+	<property>/an2/instrumentation/starter/spin</property>
+	<volume>
+		<max>0.8</max>
+	</volume>
+</spinup>
+ 
+
+  <engine>
+	  <name>engine idle</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/an2_rpm1.wav</path>
+	  <condition>
+		  <and>
+			<or>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>0</value>
+			  </equals>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>8</value>
+			  </equals>
+		  	</or>
+			<property>/engines/engine/running</property>
+		  </and>
+	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>-0.0006</factor>
+		  <min>0.1</min>
+		  <max>0.8</max>
+		  <offset>0.9</offset>
+	  </volume>
+  </engine>
+
+  <!--Internal view sound-->
+  <engine>
+	  <name>engine internal</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/an2_rpm2.wav</path>
+	  <condition>
+		  <and>
+			  <or>
+				  <equals>
+					  <property>/sim/current-view/view-number</property>
+					  <value>0</value>
+				  </equals>
+				  <equals>
+					  <property>/sim/current-view/view-number</property>
+					  <value>8</value>
+				  </equals>
+			  </or>
+			  <property>/engines/engine/running</property>
+		  </and>
+  	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>0.0005</factor>
+		  <min>0.1</min>
+		  <max>0.8</max>
+	  </volume>
+	  <pitch>
+		  <property>/engines/engine/mp-osi</property>
+		  <factor>0.03</factor>
+		  <min>0.85</min>
+		  <max>1.4</max>
+		  <offset>0.0</offset>
+	  </pitch>
+  </engine>
+  <propeller>
+	  <name>propeller internal</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/an2_prop1b.wav</path>
+	  <condition>
+		  <and>
+			  <or>
+				  <equals>
+					  <property>/sim/current-view/view-number</property>
+					  <value>0</value>
+				  </equals>
+				  <equals>
+					  <property>/sim/current-view/view-number</property>
+					  <value>8</value>
+				  </equals>
+			  </or>
+			  <property>/engines/engine/running</property>
+		  </and>
+	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>0.0004</factor>
+		  <min>0.1</min>
+		  <max>0.5</max>
+	  </volume>
+	  <volume>
+		  <property>/orientation/alpha-deg</property>
+		  <type>log</type>
+		  <min>0.1</min>
+		  <max>2.0</max>
+	  </volume>
+	  <pitch>
+		  <property>/engines/engine/mp-osi</property>
+		  <factor>0.03</factor>
+		  <min>0.85</min>
+		  <max>1.4</max>
+		  <offset>0.0</offset>
+	  </pitch>
+  </propeller>
+  <!--External view sound-->
+ <engine>
+	  <name>engine external</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/xcan2_rpm3.wav</path>
+	  <condition>
+		  <and>
+		       <or>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>1</value>
+			  </equals>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>2</value>
+			  </equals>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>5</value>
+			  </equals>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>6</value>
+			  </equals>
+		      </or>
+			  <property>/engines/engine/running</property>
+		  </and>
+	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>0.0005</factor>
+		  <min>0.1</min>
+		  <max>0.5</max>
+	  </volume>
+	  <pitch>
+		  <property>/engines/engine/mp-osi</property>
+		  <factor>0.03</factor>
+		  <min>0.85</min>
+		  <max>1.4</max>
+		  <offset>0.0</offset>
+	  </pitch>
+  </engine>
+  <propeller>
+	  <name>propeller external</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/xcan2_prop1a.wav</path>
+	  <condition>
+		  <and>
+		    <or>
+		  	<equals>
+			  <property>/sim/current-view/view-number</property>
+			  <value>1</value>
+			</equals>
+			<equals>
+			  <property>/sim/current-view/view-number</property>
+			  <value>2</value>
+			</equals>
+			<equals>
+				<property>/sim/current-view/view-number</property>
+				<value>5</value>
+			</equals>
+			<equals>
+				<property>/sim/current-view/view-number</property>
+				<value>6</value>
+			</equals>
+		    </or>
+		    <property>/engines/engine/running</property>
+		  </and>
+	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>0.0003</factor>
+		  <min>0.1</min>
+		  <max>0.5</max>
+	  </volume>
+	  <volume>
+		  <property>/orientation/alpha-deg</property>
+		  <type>log</type>
+		  <min>0.2</min>
+		  <max>1.0</max>
+	  </volume>
+	  <pitch>
+		  <property>/engines/engine/mp-osi</property>
+		  <factor>0.03</factor>
+		  <min>0.85</min>
+		  <max>1.4</max>
+		  <offset>0.0</offset>
+	  </pitch>
+  </propeller>
+  <!--Tower view - engine only-->
+  
+ <engine>
+	  <name>Tower</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/xcan2_rpm3.wav</path>
+	  <condition>
+		  <and>
+			<or>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>3</value>
+			  </equals>
+			  <equals>
+				  <property>/sim/current-view/view-number</property>
+				  <value>4</value>
+			  </equals>
+			</or>
+			<property>/engines/engine/running</property>
+		  </and>
+	  </condition>
+	  <volume>
+		  <property>/engines/engine/rpm</property>
+		  <factor>0.0005</factor>
+		  <min>0.1</min>
+		  <max>0.5</max>
+	  </volume>
+	  <pitch>
+		  <property>/engines/engine/mp-osi</property>
+		  <factor>0.03</factor>
+		  <min>0.85</min>
+		  <max>1.4</max>
+		  <offset>0.0</offset>
+	  </pitch>
+  </engine>
+  
+  <flap>
+	  <name>flaps</name>
+	  <mode>in-transit</mode>
+	  <path>Aircraft/an2/Sounds/an2_flaps.wav</path>
+	  <property>/surface-positions/flap-pos-norm</property>
+	  <volume>
+		  <factor>0.4</factor>
+	  </volume>
+	  <reference-dist>10.0</reference-dist>
+	  <max-dist>20.0</max-dist>
+  </flap>
+  <avionics>
+	  <name>beacon</name>
+	  <mode>looped</mode>
+	  <path>Aircraft/an2/Sounds/beacon.wav</path>
+	  <property>an2/systems/electrical/marker_lamp</property>
+	  <volume>
+		  <factor>0.4</factor>
+	  </volume>
+  </avionics>
+  
+  <avionics>
+	  <name>altimeter</name>
+	  <mode>once</mode>
+	  <path>Aircraft/an2/Sounds/altimeter.wav</path>
+	  <property>an2/instrumentation/rv-um/lamp</property>
+	  <volume>
+		  <factor>0.4</factor>
+	  </volume>
+  </avionics>
+
+  
+<!--C172p sound below--> 
+  
+ <rumble>
+   <name>rumble</name>
+   <mode>looped</mode>
+   <path>Sounds/rumble.wav</path>
+   <condition>
+    <or>
+     <property>/gear/gear[0]/wow</property>
+     <property>/gear/gear[1]/wow</property>
+     <property>/gear/gear[2]/wow</property>
+    </or>
+  <!-- <property>/sim/current-view/internal</property> -->
+   </condition>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <type>log</type>
+    <factor>0.25</factor>
+   </volume>
+  </rumble>
+
+  <squeal>
+   <name>squeal</name>
+   <path>Sounds/squeal.wav</path>
+   <condition>
+    <or>
+     <property>/gear/gear[0]/wow</property>
+     <property>/gear/gear[1]/wow</property>
+     <property>/gear/gear[2]/wow</property>
+    </or>
+   </condition>
+   <volume>
+    <property>/velocities/speed-down-fps</property>
+    <factor>0.5</factor>
+    <max>1.0</max>
+   </volume>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+    <max>1.0</max>
+   </volume>
+   <volume>
+    <internal>dt_stop</internal>
+    <factor>0.05</factor>
+    <max>1.0</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0025</factor>
+    <offset>1.2</offset>
+   </pitch>
+  </squeal>
+ 
+  <wind>
+   <name>wind</name>
+   <mode>looped</mode>
+   <path>Sounds/wind.wav</path>
+   <property>/velocities/airspeed-kt</property>
+   <volume>
+    <property>/position/altitude-ft</property>
+    <factor>-0.000015</factor>
+    <offset>1.0</offset>
+    <min>0.1</min>
+    <max>1.0</max>
+   </volume>
+   <volume>
+     <property>/velocities/airspeed-kt</property>
+     <factor>0.0015</factor>
+     <min>0.03</min>
+     <max>0.25</max>
+   </volume>
+   <pitch>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0035</factor>
+    <offset>1.25</offset>
+   </pitch>
+  </wind>
+ 
+<!-- no binding yet?
+  <click>
+   <name>click</name>
+   <path>Sounds/click.wav</path>
+  </click>
+-->
+
+</fx>
+ 
+</PropertyList>

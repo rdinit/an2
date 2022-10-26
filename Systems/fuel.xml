@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+**************************************************************************
+
+Antonov-2 Fuel System (JSBSim)
+
+Copyright (c) 2015 Ludovic Brenta
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**************************************************************************
+-->
+
+<system name="Fuel">
+
+  <!-- Tank selector: 0 = OFF, 1 = LEFT, 2 = BOTH, 3 = RIGHT -->
+  <property value="0">/an2/instrumentation/fuel-select/position</property>
+
+  <channel name="Fuel">
+    <switch name="propulsion/tank[1]/external-flow-rate-pps">
+      <test logic="OR" value="0.0">
+        propulsion/tank[0]/pct-full GE 99.0
+        propulsion/tank[1]/pct-full LE 0.1
+      </test>
+      <test logic="OR" value="-0.2">
+        /an2/instrumentation/fuel-select/position EQ 2
+        /an2/instrumentation/fuel-select/position EQ 3
+      </test>
+      <default value="0.0"/>
+      <output>propulsion/tank[1]/external-flow-rate-pps</output>
+    </switch>
+
+    <switch name="propulsion/tank[2]/external-flow-rate-pps">
+      <test logic="OR" value="0.0">
+        propulsion/tank[0]/pct-full GE 99.0
+        propulsion/tank[2]/pct-full LE 0.1
+      </test>
+      <test logic="OR" value="-0.2">
+        /an2/instrumentation/fuel-select/position EQ 1
+        /an2/instrumentation/fuel-select/position EQ 2
+      </test>
+      <default value="0.0"/>
+      <output>propulsion/tank[2]/external-flow-rate-pps</output>
+    </switch>
+
+    <summer name="propulsion/tank[0]/external-flow-rate-pps">
+      <input>-propulsion/tank[1]/external-flow-rate-pps</input>
+      <input>-propulsion/tank[2]/external-flow-rate-pps</input>
+      <output>propulsion/tank[0]/external-flow-rate-pps</output>
+    </summer>
+
+  </channel>
+</system>

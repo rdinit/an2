@@ -1,0 +1,155 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+OBJECT world
+kids 5
+OBJECT group
+name "group_uv"
+kids 3
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.005
+texture "te-45_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000118 0.024376 0.024457
+0.000118 -0.024179 0.024454
+0.000118 -0.024182 -0.025059
+0.000118 0.024373 -0.025056
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "long_needle_uv"
+data 8
+Mesh.004
+texture "te-45_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000422 -0.012373 0.001672
+0.000422 -0.012373 -0.002265
+0.000422 0.023181 -0.002265
+0.000422 0.023181 0.001672
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.65625 0.0546875
+1 0.90625 0.0546875
+2 0.90625 1.0
+3 0.65625 1.0
+kids 0
+OBJECT poly
+name "short_needle_uv"
+data 8
+Mesh.003
+texture "te-45_2_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000298 0.017126 0.004122
+0.000298 0.017126 -0.004722
+0.000298 -0.011826 -0.004722
+0.000298 -0.011826 0.004122
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0.46875 0.875
+0 -0.015625 0.875
+3 -0.015625 0.0546875
+2 0.46875 0.0546875
+kids 0
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "te-45_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000103 0.029915 0.030043
+0.000103 -0.029023 0.030043
+0.000103 -0.029023 -0.030634
+0.000103 0.029915 -0.030634
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "front"
+data 8
+Mesh.006
+texture "te-45_3.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000586 -0.029536 0.029983
+0.000586 -0.029536 -0.030337
+0.000586 0.029942 -0.030337
+0.000586 0.029942 0.029983
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "long_needle"
+data 8
+Mesh.002
+texture "te-45_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000416 0.023181 0.001666
+0.000416 0.023181 -0.002271
+0.000416 -0.012373 -0.002271
+0.000416 -0.012373 0.001666
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 0.90625 1.0
+0 0.65625 1.0
+3 0.65625 0.0546875
+2 0.90625 0.0546875
+kids 0
+OBJECT poly
+name "short_needle"
+data 8
+Mesh.001
+texture "te-45_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000287 -0.011826 0.004121
+0.000287 -0.011826 -0.004723
+0.000287 0.017126 -0.004723
+0.000287 0.017126 0.004121
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 -0.015625 0.0546875
+1 0.46875 0.0546875
+2 0.46875 0.875
+3 -0.015625 0.875
+kids 0

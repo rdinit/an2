@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2009 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################
+    
+    ************************* An-2 ver. 2.0 *************************************
+    -->
+
+<!-- Switch line
+3D instrument for An-2-->
+<PropertyList>
+ <path>sw_line4.ac</path>
+<!-- External instruments lighting -->
+<animation>
+  <type>material</type>
+  <object-name>text</object-name>
+  <object-name>base</object-name>
+  <object-name>base.001</object-name>
+  <object-name>base.002</object-name>
+  <object-name>base.003</object-name>
+  <object-name>hand</object-name>
+  <object-name>hand.003</object-name>
+  <object-name>hand.004</object-name>
+  <object-name>hand.005</object-name>
+  <emission>
+    <red-prop>an2/controls/light/ext-red</red-prop>
+    <green-prop>an2/controls/light/ext-green</green-prop>
+    <blue-prop>an2/controls/light/ext-blue</blue-prop>
+  </emission>
+</animation>
+
+<!--UV staff-->
+<animation>
+  <type>material</type>
+  <object-name>spot</object-name>
+  <object-name>spot.001</object-name>
+  <object-name>spot.002</object-name>
+  <object-name>spot.003</object-name>
+ <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+
+<!-- **************************** Handles **************************** -->
+<animation>
+    <type>rotate</type>
+    <object-name>hand</object-name>
+    <object-name>spot</object-name>
+    <property>an2/controls/switches/brake_switch</property>
+    <offset-deg>30.0</offset-deg>
+    <factor>-60.0</factor>
+    <axis>
+      <x>0.0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>hand.003</object-name>
+	<object-name>spot.001</object-name>
+	<property>an2/controls/switches/oil_switch</property>
+	<axis>
+		<x>0.0</x>
+		<y>1.0</y>
+		<z>0.0</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>hand.004</object-name>
+	<object-name>spot.002</object-name>
+	<property>an2/controls/switches/air_switch</property>
+	<axis>
+		<x>0.0</x>
+		<y>1.0</y>
+		<z>0.0</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>hand.005</object-name>
+	<object-name>spot.003</object-name>
+	<property>an2/controls/switches/fire_switch</property>
+	<offset-deg>30.0</offset-deg>
+	<factor>-60.0</factor>
+	<axis>
+		<x>0.0</x>
+		<y>1.0</y>
+		<z>0.0</z>
+	</axis>
+</animation>
+
+
+
+<!-- ******************** Pick staff ******************************* -->
+<animation>
+	<type>pick</type>
+	<object-name>hs1</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+			interpolate("an2/controls/switches/brake_switch", 1.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs2</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				interpolate("an2/controls/switches/brake_switch", 0.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs3</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				interpolate("an2/controls/switches/oil_switch", -30.0, 0.1 );
+			</script>
+		</binding>
+		<binding>
+			<command>property-adjust</command>
+			<property>fdm/jsbsim/propulsion/engine[0]/oil-damper</property>
+			<step>0.01</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interpolate("an2/controls/switches/oil_switch", 0.0, 0.1 );
+				</script>
+			</binding>
+		</mod-up>
+		
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs4</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+interpolate("an2/controls/switches/oil_switch", 30.0, 0.1 );
+			</script>
+		</binding>
+		<binding>
+			<command>property-adjust</command>
+			<property>fdm/jsbsim/propulsion/engine[0]/oil-damper</property>
+			<step>-0.01</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+interpolate("an2/controls/switches/oil_switch", 0.0, 0.1 );
+				</script>
+			</binding>
+		</mod-up>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs5</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+				interpolate("an2/controls/switches/air_switch", -30.0, 0.1 );
+			</script>
+		</binding>
+		<binding>
+			<command>property-adjust</command>
+			<property>fdm/jsbsim/propulsion/engine[0]/air-damper</property>
+			<step>0.01</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+					interpolate("an2/controls/switches/air_switch", 0.0, 0.1 );
+				</script>
+			</binding>
+		</mod-up>
+		
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs6</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+		interpolate("an2/controls/switches/air_switch", 30.0, 0.1 );
+			</script>
+		</binding>
+		<binding>
+			<command>property-adjust</command>
+			<property>fdm/jsbsim/propulsion/engine[0]/air-damper</property>
+			<step>-0.01</step>
+			<min>0.0</min>
+			<max>1.0</max>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>
+		interpolate("an2/controls/switches/air_switch", 0.0, 0.1 );
+				</script>
+			</binding>
+		</mod-up>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs7</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+		interpolate("an2/controls/switches/fire_switch", 1.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs8</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>nasal</command>
+			<script>
+		interpolate("an2/controls/switches/fire_switch", 0.0, 0.1 );
+			</script>
+		</binding>
+	</action>
+</animation>
+
+
+</PropertyList>

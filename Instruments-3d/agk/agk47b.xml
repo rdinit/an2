@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2009 by Yurik V. Nikiforoff - FDM, 3d instruments, animations, 	#
+    #    systems and over.   							#
+    #		yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################	  
+    -->
+
+<PropertyList>
+  <!-- Attitude indicator AGK47-B -->
+ <path>agk47b.ac</path>
+ <!-- Internal instruments lighting -->
+<animation>
+   <type>material</type>
+   <object-name>pitch_needle</object-name>
+   <object-name>roll_needle</object-name>
+   <object-name>ribbon</object-name>
+   <object-name>skid_base</object-name>
+   <object-name>turn</object-name>
+   <object-name>skid</object-name>
+   <emission>
+     <red-prop>an2/controls/light/int-red</red-prop>
+     <green-prop>an2/controls/light/int-green</green-prop>
+     <blue-prop>an2/controls/light/int-blue</blue-prop>
+   </emission>
+</animation>
+<!-- External instruments lighting -->
+<animation>
+   <type>material</type>
+   <object-name>front</object-name>
+   <emission>
+     <red-prop>an2/controls/light/ext-red</red-prop>
+     <green-prop>an2/controls/light/ext-green</green-prop>
+     <blue-prop>an2/controls/light/ext-blue</blue-prop>
+   </emission>
+</animation>
+<!--UV staff-->
+<!--Select-->
+<animation>
+   <type>select</type>
+      <object-name>ribbon_uv</object-name>
+      <object-name>skid_base_uv</object-name>
+      <object-name>skid_uv</object-name>
+      <object-name>turn_uv</object-name>
+      <object-name>pitch_needle_uv</object-name>
+      <object-name>roll_needle_uv</object-name>
+      <object-name>cage_uv</object-name>
+      <object-name>horiz_uv</object-name>
+   <condition>
+   	<property>an2/controls/switches/uv_light</property>
+   </condition>
+</animation>
+<!--Emissive-->
+<animation>
+  <type>material</type>
+  <object-name>ribbon_uv</object-name>
+  <object-name>skid_base_uv</object-name>
+  <object-name>skid_uv</object-name>
+  <object-name>turn_uv</object-name>
+  <object-name>pitch_needle_uv</object-name>
+  <object-name>roll_needle_uv</object-name>
+  <object-name>cage_uv</object-name>
+  <object-name>horiz_uv</object-name> 
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+
+<!--Pitch ribbon-->
+<animation>
+ <type>rotate</type>
+ <object-name>ribbon</object-name>
+ <object-name>ribbon_uv</object-name>
+ <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
+ <offset-deg>7</offset-deg>
+ <factor>-1.0</factor>
+ <max-deg>35</max-deg>
+ <min-deg>-35</min-deg>
+  <center>
+    <x-m>-0.095</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Needles-->
+<animation>
+  <type>translate</type>
+  <object-name>pitch_needle</object-name>
+  <object-name>pitch_needle_uv</object-name>
+  <object-name>roll_needle</object-name>
+  <object-name>roll_needle_uv</object-name>  
+  <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>0.0014</factor>
+  <offset-m>-0.001</offset-m>
+  <max-m>0.027</max-m>
+  <min-m>-0.027</min-m>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>roll_needle</object-name>
+  <object-name>roll_needle_uv</object-name>
+  <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <factor>-1.0</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Side slip-->
+<animation>
+  <type>rotate</type>
+  <object-name>skid</object-name>
+  <object-name>skid_uv</object-name>
+  <condition>
+    <not>
+     <property>instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <factor>-1.2</factor>
+  <max-deg>7</max-deg>
+  <min-deg>-7</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Turn indicator-->
+<animation>
+  <type>rotate</type>
+  <object-name>turn</object-name>
+  <object-name>turn_uv</object-name>
+  <condition>
+    <not>
+      <property>instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>instrumentation/turn-indicator/indicated-turn-rate</property>
+  <factor>1.2</factor>
+  <max-deg>10</max-deg>
+  <min-deg>-10</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Horizont-->
+<animation>
+  <type>translate</type>
+  <object-name>horiz</object-name>
+  <object-name>horiz_uv</object-name>
+  <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+  <factor>0.0008</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<!--Arretir-->
+<animation>
+  <type>rotate</type>
+  <object-name>cage</object-name>
+  <object-name>cage_uv</object-name>
+  <property>instrumentation/attitude-indicator/caged-flag</property>
+  <factor>20</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.042</y-m>
+    <z-m>0.028</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+
+<animation>
+	<type>pick</type>
+	<object-name>hs1</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-toggle</command>
+			<property>instrumentation/attitude-indicator/caged-flag</property>
+		</binding>
+	</action>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>hs2</object-name>
+	<visible>false</visible>
+	<action>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+			<step>1</step>
+			<min>-38</min>
+			<max>44</max>
+		</binding>
+	</action>
+	<action>
+		<button>1</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+			<step>-1</step>
+			<min>-38</min>
+			<max>44</max>
+		</binding>
+	</action>
+	<action>
+		<button>3</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+			<step>1</step>
+			<min>-38</min>
+			<max>44</max>
+		</binding>
+	</action>
+	<action>
+		<button>4</button>
+		<repeatable>false</repeatable>
+		<binding>
+			<command>property-adjust</command>
+		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+			<step>-1</step>
+			<min>-38</min>
+			<max>44</max>
+		</binding>
+	</action>
+</animation>
+
+
+</PropertyList>

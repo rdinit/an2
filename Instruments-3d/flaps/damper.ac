@@ -1,0 +1,89 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 12 trans 0
+OBJECT world
+kids 4
+OBJECT poly
+name "base"
+data 4
+Mesh
+texture "damper.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+-0.000165 0.029392 0.028377
+-0.000165 -0.028821 0.028377
+-0.000165 -0.028821 -0.028498
+-0.000165 0.029392 -0.028498
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 1.0
+1 0.0 0.0
+2 1.0 0.0
+3 1.0 1.0
+kids 0
+OBJECT poly
+name "base_uv"
+data 8
+Mesh.001
+texture "damper_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000172 0.021402 -0.029734
+0.000172 -0.023448 -0.029734
+0.000172 -0.023448 0.014266
+0.000172 0.021402 0.014266
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 0.0
+0 1.0 1.0
+3 0.0 1.0
+2 0.0 0.0
+kids 0
+OBJECT poly
+name "needle"
+data 8
+Mesh.002
+texture "needle.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000869 0.023385 -0.003612
+0.000869 0.023385 0.003358
+0.000869 -0.012343 0.003358
+0.000869 -0.012343 -0.003612
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.990320980549 0.978753983974
+1 -0.0252989996225 0.978753983974
+2 -0.0252989996225 0.302971988916
+3 0.990320980549 0.302971988916
+kids 0
+OBJECT poly
+name "needle_uv"
+data 8
+Mesh.003
+texture "needle_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.001172 -0.012343 -0.003124
+0.001172 -0.012343 0.002695
+0.001172 0.022517 0.002695
+0.001172 0.022517 -0.003124
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 -0.0252989996225 0.302971988916
+0 0.990320980549 0.302971988916
+3 0.990320980549 0.978753983974
+2 -0.0252989996225 0.978753983974
+kids 0

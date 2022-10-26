@@ -1,0 +1,88 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "mat_1" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0 0 0 shi 10 trans 0
+MATERIAL "Material" rgb 1 1 0 amb 0.5 0.5 0.5 emis 0 0 0 spec 1 1 1 shi 32 trans 0
+OBJECT world
+kids 4
+OBJECT poly
+name "comp_base_1"
+data 8
+Mesh.011
+texture "compass_1.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+7e-05 -0.016802 0.017137
+7e-05 -0.016802 -0.01728
+4.9e-05 0.016795 -0.01728
+5e-05 0.016795 0.017137
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "comp_base_2"
+data 8
+Mesh.012
+texture "compass_2.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+6.4e-05 -0.016802 0.017137
+6.4e-05 -0.016802 -0.01728
+4.3e-05 0.016795 -0.01728
+4.3e-05 0.016795 0.017137
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+0 0.0 0.0
+1 1.0 0.0
+2 1.0 1.0
+3 0.0 1.0
+kids 0
+OBJECT poly
+name "comp_base_uv"
+data 8
+Mesh.013
+texture "compass_1_uv.png"
+texrep 1 1
+crease 80.000000
+numvert 4
+0.000352 0.014139 0.014715
+0.000352 0.014139 -0.014894
+0.000384 -0.014381 -0.014894
+0.000384 -0.014381 0.014715
+numsurf 1
+SURF 0x20
+mat 1
+refs 4
+1 1.0 1.0
+0 0.0 1.0
+3 0.0 0.0
+2 1.0 0.0
+kids 0
+OBJECT poly
+name "hs"
+data 5
+Plane
+crease 30.000000
+numvert 4
+0.00066 -0.011997 -0.01227
+0.00066 -0.011997 0.011966
+0.00066 0.012239 0.011966
+0.00066 0.012239 -0.01227
+numsurf 1
+SURF 0x20
+mat 2
+refs 4
+0 0 0
+3 0 0
+2 0 0
+1 0 0
+kids 0
