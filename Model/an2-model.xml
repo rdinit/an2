@@ -593,6 +593,25 @@
 	</axis>
 </animation>
 
+<model>
+  <name>navlight_l</name>
+  <path>Aircraft/an2/Model/Lights/red.xml</path>
+     <offsets>
+      <x-m>3.789</x-m> 
+      <y-m>-9</y-m> 
+      <z-m>1.652</z-m>       
+     </offsets>
+</model>
+<model>
+  <name>navlight_r</name>
+  <path>Aircraft/an2/Model/Lights/green.xml</path>
+     <offsets>
+      <x-m>3.789</x-m> 
+      <y-m>9</y-m> 
+      <z-m>1.652</z-m>       
+     </offsets>
+</model>
+
   <model>
     <path>Aircraft/Generic/marker.xml</path>
   </model>
